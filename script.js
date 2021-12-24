@@ -45,6 +45,23 @@ function generatePassword() {
 
   //console.log(specials);
 
+  // combine chosen chars into one array
+  var validChars = [];
+  if (includeLowerCase) {
+    validChars = validChars.concat(lowers);
+  }
+  if (includeUpperCase) {
+    validChars = validChars.concat(uppers);
+  }
+  if (includeNums) {
+    validChars = validChars.concat(nums);
+  }
+  if (includeSpecials) {
+    validChars = validChars.concat(specials);
+  }
+
+  console.log(validChars);
+
   return generatedPass;
 
   // Present user series of prompts/confirms
