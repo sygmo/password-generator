@@ -62,30 +62,18 @@ function generatePassword() {
 
   console.log(validChars);
 
-  return generatedPass;
+  // generate random password of given length using chosen char options
+  var passArray = []
+  for (var i = 0; i < passLen; i++) {
+    // get random index
+    var index = Math.floor(Math.random() * validChars.length);
+    passArray.push(validChars[index]);
+  }
+  generatedPass = passArray.join('')
 
-  // Present user series of prompts/confirms
-    // length prompt - var
-    // lower confirm - var
-    // upper confirm - var
-    // nums confirm - var
-    // special confirm - var
-  // length prompt / number between 8-128
-    // if/conditional check if length is between 8-128
-      // if true continue to confirms. if false ask length again
-  // confirm for lower, upper, nums, special chars
-  // input validation - correct nums, at least 1 character chosen
-    // if/conditional check using || , true continue to generate, false ask confirm again
-  // randomly generate password string from choices
-    // arrays of lower, upper, nums, special
-    // array of all chosen characters, concat?
-    // choose from the all options array number of chars required (from length prompt)
-      // for loop
-      // Math.random choose index position from array
-      // grab from chosen array, add to password array
-      // convert array to string
-      // return string
-  // display password in text box - write to page
+  console.log(generatedPass);
+
+  return generatedPass;
 }
 
 // Add event listener to generate button
