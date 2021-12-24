@@ -11,6 +11,8 @@ function writePassword() {
 }
 
 function generatePassword() {
+  var generatedPass = "";
+
   // ask user for password length (repeat until value 8-128 is chosen)
   var passLen = 0;
   while(passLen < 8 || passLen > 128) {
@@ -18,16 +20,22 @@ function generatePassword() {
   }
 
   // ask user which characters should be included
-  var includeLowerCase = confirm("Include lowercase letters?");
-  var includeUpperCase = confirm("Include uppercase letters?");
-  var includeNums = confirm("Include numbers?");
-  var includeSpecials = confirm("Include special characters?");
+  var includeLowerCase, includeUpperCase, includeNums, includeSpecials = false;
+  while (!includeLowerCase && !includeUpperCase && !includeNums && !includeSpecials) {
+    alert("Please include select at least one of the following choices:")
+    includeLowerCase = confirm("Include lowercase letters?");
+    includeUpperCase = confirm("Include uppercase letters?");
+    includeNums = confirm("Include numbers?");
+    includeSpecials = confirm("Include special characters?");
+  }
 
   console.log("Length: " + passLen);
   console.log("Lowercase? " + includeLowerCase);
   console.log("Uppercase? " + includeUpperCase);
   console.log("Numbers? " + includeNums);
   console.log("Special chars? " + includeSpecials);
+
+  return generatedPass;
 
   // Present user series of prompts/confirms
     // length prompt - var
